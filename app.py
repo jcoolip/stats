@@ -30,6 +30,7 @@ def get_memory():
 def get_storage():
     paths = {
         "root": "/",
+        "space": "/mnt/space"
     }
 
     storage = {}
