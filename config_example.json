@@ -1,0 +1,9 @@
+{
+    "hostname": "hostname",
+    "display_name": "stats",
+
+    "storage": {
+        "root": "/",
+        "home": "/home/username"
+    }
+}

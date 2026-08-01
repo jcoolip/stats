@@ -1,12 +1,14 @@
 from flask import Flask, jsonify
 import time
-
+import json
 import psutil
 
 app = Flask(__name__)
 
 GIB = 1024**3
 
+with open("config.json", "r") as f:
+    CONFIG = json.load(f)
 
 def get_cpu_usage():
     return {
@@ -28,14 +30,10 @@ def get_memory():
 
 
 def get_storage():
-    paths = {
-        "root": "/",
-        "space": "/mnt/space"
-    }
 
     storage = {}
 
-    for name, path in paths.items():
+    for name, path in CONFIG["storage"].items():
         disk = psutil.disk_usage(path)
 
         storage[name] = {
